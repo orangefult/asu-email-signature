@@ -1,0 +1,30 @@
+
+
+.email-signature.pc .name-line {
+    font-size: 10pt;
+}
+
+.email-signature.mac {
+    font-size: 10pt;
+}
+
+.email-signature.mac .name-line {
+    font-size: 13pt;
+}
+
+.email-signature-container fieldset,.email-signature-container {
+    margin: 20px 0;
+    padding: 20px;
+    border:none
+}
+
+.email-signature-container fieldset input {
+    padding: 8px;
+    display: block;
+    margin-bottom: 5px;
+    width: 98%;
+}
+
+#signature_container{
+    margin-left:20px
+}

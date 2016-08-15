@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pharmacy Signature maker</title>
+  <title>Email signature tool</title>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   <script type="text/javascript" src="./asu-email-signature.js"></script>
   <link rel="stylesheet" type="text/css" href="./asu-email-signature.css" />
@@ -24,7 +24,7 @@
     </select>
     </fieldset>
    
-
+<div id="signature_container" >
         
         <table width="400" cellpadding="0" cellspacing="0" align="left">
         <tr>
@@ -35,7 +35,7 @@
             </td>
             <tr>
                 <td style="font-family:'arial narrow', helvetica, arial, sans-serif; color:#777;">
-                    <span id="contact" style="font-size:12px;line-height:9px">{{ phone }} {{ mobile }} {{ fax }}</span></td>
+                   {{ phone }} {{ mobile }} {{ fax }}</td>
             </tr>
             <tr>
                 <td>
@@ -54,7 +54,7 @@
             </tr>
     </table>
         
-      
+      </div>
       
     </div>
   </div>
