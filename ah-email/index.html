@@ -4,12 +4,13 @@
 <head>
     <title>Email signature tool</title>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script type="text/javascript" src="./asu-email-signature.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src="./email-sig.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
 
     <link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="clipboard.min.js"></script>
 
 </head>
 
@@ -17,9 +18,9 @@
 
     <!-- Begin angular app markup -->
     <div class="container">
-        <div  ng-app="emailSignatureBranding">
+        <div ng-app="emailSignatureBranding">
             <div id="signature-form" class="col-md-10 col-md-offset-1" ng-controller="Controller">
-        
+
 
 
                 <form class="form-horizontal">
@@ -27,6 +28,7 @@
 
                         <!-- Form Name -->
                         <legend>Pharmacy Email Signature</legend>
+                        <p>Fill out this form and then copy and paste the email signature below into your email client</p>
 
                         <!-- Text input-->
                         <div class="form-group">
@@ -75,10 +77,10 @@
                 </form>
 
 
+                <button class="btn" data-clipboard-action="copy" data-clipboard-target="signature">Copy Signature to Clipboard</button>
+            
 
-                <div id="signature_container">
-
-                    <table width="400" cellpadding="0" cellspacing="0" align="left">
+                    <table id="signature" width="400" cellpadding="0" cellspacing="0" align="left">
                         <tr>
                             <td width="400" style="font-family:'arial narrow', helvetica, arial, sans-serif; color:#777;">
                                 <span style="font-size: 14px;">
@@ -106,13 +108,27 @@
                             </tr>
                     </table>
 
-                </div>
+                
 
             </div>
         </div>
     </div>
     <!-- End angular app markup -->
+    <script>
+        var clipboard = new Clipboard('.btn', {
+            target: function () {
+                return document.querySelector('#signature');
+            }
+        });
 
+        clipboard.on('success', function (e) {
+            console.log(e);
+        });
+
+        clipboard.on('error', function (e) {
+            console.log(e);
+        });
+    </script>
 </body>
 
 </html>
