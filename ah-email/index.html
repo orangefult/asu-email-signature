@@ -1,64 +1,118 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Email signature tool</title>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-  <script type="text/javascript" src="./asu-email-signature.js"></script>
-  <link rel="stylesheet" type="text/css" href="./asu-email-signature.css" />
+    <title>Email signature tool</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script type="text/javascript" src="./asu-email-signature.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 </head>
+
 <body>
 
-  <!-- Begin angular app markup -->
-  <div ng-app="emailSignatureBranding">
-    <div class="email-signature-container" ng-controller="Controller">
-     <h2>Enter Your Details</h2>
-      <fieldset>
-        <input ng-model="name" placeholder="Full Name">
-        <input ng-model="title" placeholder="Title">       
-        <input ng-model="phone_input" ng-change="checkPhoneNumbers()" placeholder="Phone Number">
-        <input ng-model="mobile_input" ng-change="checkPhoneNumbers()" placeholder="Mobile Number (optional)">
-        <input ng-model="fax_input" ng-change="checkPhoneNumbers()" placeholder="Fax Number (optional)">
-        <select
-       ng-model="selectedItem" 
-       ng-options="S.value as S.label for S in selectables" ng-change="fun()"><option value="" selected="selected">Choose a pharmacy</option>
-    </select>
-    </fieldset>
-   
-<div id="signature_container" >
+    <!-- Begin angular app markup -->
+    <div class="container">
+        <div  ng-app="emailSignatureBranding">
+            <div id="signature-form" class="col-md-10 col-md-offset-1" ng-controller="Controller">
         
-        <table width="400" cellpadding="0" cellspacing="0" align="left">
-        <tr>
-            <td width="400" style="font-family:'arial narrow', helvetica, arial, sans-serif; color:#777;">
-                <span style="font-size: 14px;">
+
+
+                <form class="form-horizontal">
+                    <fieldset>
+
+                        <!-- Form Name -->
+                        <legend>Pharmacy Email Signature</legend>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input id="name" name="name" type="text" ng-model="name" placeholder="Full Name" class="form-control input-md">
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input id="title" name="title" type="text" ng-model="title" placeholder="Title" class="form-control input-md">
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input id="phone" name="phone" type="text" ng-model="phone_input" ng-change="checkPhoneNumbers()" placeholder="Phone Number" class="form-control input-md">
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input id="mobile" name="mobile" type="text" ng-model="mobile_input" ng-change="checkPhoneNumbers()" placeholder="Mobile Number (optional)" class="form-control input-md">
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input id="textinput" name="textinput" type="text" ng-model="fax_input" ng-change="checkPhoneNumbers()" placeholder="Fax Number (optional)" class="form-control input-md">
+                            </div>
+                        </div>
+
+                        <!-- Select Basic -->
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <select id="select_pharmacy" name="select_pharmacy" class="form-control" ng-model="selectedItem" ng-options="S.value as S.label for S in selectables" ng-change="fun()">
+                                </select>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
+
+
+
+                <div id="signature_container">
+
+                    <table width="400" cellpadding="0" cellspacing="0" align="left">
+                        <tr>
+                            <td width="400" style="font-family:'arial narrow', helvetica, arial, sans-serif; color:#777;">
+                                <span style="font-size: 14px;">
                     <span id="name" style="font-weight:normal;color:#30C2DC;line-height:20px font-family:'arial narrow', helvetica, arial, sans-serif;">{{ name }}</span>&nbsp;<span id="title" style=" color:#777;">{{ title }}</span>
-                </span>
-            </td>
-            <tr>
-                <td style="font-family:'arial narrow', helvetica, arial, sans-serif; color:#777;">
-                   {{ phone }} {{ mobile }} {{ fax }}</td>
-            </tr>
-            <tr>
-                <td>
-                    <table width="400" cellpadding="0" cellspacing="0" align="left" style="font-size: 8px !important;">
-                        <tr>
-                            <td width="90" height="7" colspan="3" style="line-height:7px; font-size:.1px;"> &nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td valign="middle" width="90"><img style="width:100% !important;" src="{{selectedItem}}"></td>
-                            <td width="7"></td>
-                            <td valign="middle" style="font-family:'arial narrow', helvetica, arial, sans-serif; color:#777;"><span style="font-size:8px;line-height:10px">
+                                </span>
+                            </td>
+                            <tr>
+                                <td style="font-family:'arial narrow', helvetica, arial, sans-serif; color:#777;">
+                                    {{ phone }} {{ mobile }} {{ fax }}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table width="400" cellpadding="0" cellspacing="0" align="left" style="font-size: 8px !important;">
+                                        <tr>
+                                            <td width="90" height="7" colspan="3" style="line-height:7px; font-size:.1px;"> &nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="middle" width="90"><img style="width:100% !important;" src="{{selectedItem}}"></td>
+                                            <td width="7"></td>
+                                            <td valign="middle" style="font-family:'arial narrow', helvetica, arial, sans-serif; color:#777;"><span style="font-size:8px;line-height:10px">
                   Notice: This e-mail message is confidential and is intended only for the use of the individual and/or entity identified in the address line of this message. If you have received this message in error, or are not the named recipient(s), please notify us immediately by telephone at 855.683.9089</span></td>
-                        </tr>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
                     </table>
-                </td>
-            </tr>
-    </table>
-        
-      </div>
-      
+
+                </div>
+
+            </div>
+        </div>
     </div>
-  </div>
-  <!-- End angular app markup -->
-  
+    <!-- End angular app markup -->
+
 </body>
+
 </html>

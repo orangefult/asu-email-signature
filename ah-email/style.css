@@ -1,0 +1,56 @@
+body,
+html {
+    font-family: 'Source Sans Pro', sans-serif;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    color: #1c424d;
+    font-family: "source sans pro", sans-serif;
+    line-height: 1.78em;
+    font-size: 1em;
+}
+
+
+/*Returns Form*/
+
+
+#signature-form {
+    padding: 2em 1em 1em 1em;
+}
+
+#signature-form .radio label {
+    margin: 0 1em !important;
+}
+
+#signature-form .radio input {
+    margin-top: .5em;
+}
+
+#quantity-options {
+    display: none;
+}
+
+#delivery-options {
+    display: none;
+}
+
+#pharmacy-options {
+    display: none;
+}
+
+#other-reason {
+    display: none;
+}
+
+#returns-button-row {
+    margin-top: 2em;
+}
+
+#return-label .iframe-container {
+    padding-bottom: 52%;
+    overflow: hidden;
+}
+
+#signature-form legend {
+    font-size: 1em;
+}
+

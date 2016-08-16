@@ -6,11 +6,12 @@ angular.module('emailSignatureBranding', [])
     $scope.mobile     = '';
     $scope.fax     = '';
     $scope.selectables = [
+        { label:'Choose a Pharmacy', value:'DummyLogoRx.gif'},
         { label: 'Alameda', value: 'alameda.gif'},
         { label:'Brookside', value:'brookside.gif'},
-        { label:'Riverbend', value:'riverbend.gif'}
-
+        { label:'Riverbend', value:'riverbend.gif'}    
     ];
+      
 
     $scope.checkMobile = function() {
       $scope.mobile = '';
